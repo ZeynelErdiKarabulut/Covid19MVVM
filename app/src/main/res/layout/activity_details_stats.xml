@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+
+        <TextView
+            android:id="@+id/tv_country_name"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/background_gris"
+            android:textColor="@color/color_ffffff"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_total_cases"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_country_name"
+            tools:text="@string/total_cases" />
+
+        <TextView
+            android:id="@+id/tv_total_deaths"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_cases"
+            tools:text="@string/total_deaths" />
+
+        <TextView
+            android:id="@+id/tv_new_cases"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_deaths"
+            tools:text="@string/new_cases" />
+
+        <TextView
+            android:id="@+id/tv_serious_cases"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_new_cases"
+            tools:text="@string/serious_cases" />
+
+        <TextView
+            android:id="@+id/tv_new_deaths"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_serious_cases"
+            tools:text="@string/new_deaths" />
+
+        <TextView
+            android:id="@+id/tv_active_cases"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_new_deaths"
+            tools:text="@string/active_cases" />
+
+        <TextView
+            android:id="@+id/tv_total_recovered"
+            style="@style/TextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_green"
+            android:textColor="@color/color_61D292"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_active_cases"
+            tools:text="@string/total_recovered" />
+
+
+        <TextView
+            android:id="@+id/tv_cases_per_1m"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_F0637B"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline_vertical90"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical10"
+            tools:text="@string/cases_per_1m" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_details_visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="tv_cases_per_1m,tv_total_recovered,tv_new_deaths,tv_new_cases,tv_total_deaths,tv_total_cases,tv_serious_cases,tv_active_cases,tv_country_name" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/color_3a3a3a"
+            android:src="@drawable/ic_share_white_24dp"
+            android:tint="@color/color_ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
